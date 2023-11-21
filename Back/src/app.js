@@ -1,6 +1,9 @@
 const express = require("express");
 const server = express();
+const morgan = require('morgan');
+const {routes} = require('./routes/index')
 
+server.use(morgan('dev'));
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -15,6 +18,8 @@ server.use((req, res, next) => {
     next();
  });
  
+
+server.use("/videogames", routes)
 server.use(express.json());
 
 module.exports = { server }

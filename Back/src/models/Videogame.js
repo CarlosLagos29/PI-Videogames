@@ -1,11 +1,12 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) =>{
-    sequelize.define('videogame',{
-        id:{
-            type:DataTypes.INTEGER,
-            allowNull: false,
-        },
+    sequelize.define('Videogames',{
+        // id: {
+        //     type: DataTypes.UUID,
+        //     allowNull: false,
+        //     primaryKey: true, 
+        // },
         name:{
             type:DataTypes.STRING,
             allowNull:false
@@ -15,14 +16,14 @@ module.exports = (sequelize) =>{
             allowNull:false
         },
         plataforms:{
-            type: DataTypes.ENUM("Xbox","PlayStation","PC","Nintendo"),
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false
         },
         image:{
             type:DataTypes.STRING,
             allowNull:false
         },
-        releaseDate:{
+        release:{
             type:DataTypes.DATE,
             allowNull:true
         },
