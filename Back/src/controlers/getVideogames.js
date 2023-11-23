@@ -13,13 +13,14 @@ const getVideogames = async (req, res) => {
 
       const nombresDeJuegos = data.results.map((game) => {
         return {
+          id : game.id,
           name: game.name,
           description: game.description_raw,
           plataforms: game.platforms.map((plataforma) => plataforma.platform.name),
           image: game.background_image,
           release: game.released,
           rating: game.rating,
-          genres: game.genres.map((g) => g.name)
+          Genres: game.genres.map((g) => g.name)
         };
       });
       games.push(...nombresDeJuegos);

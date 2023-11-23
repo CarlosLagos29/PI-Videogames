@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 const morgan = require('morgan');
-const {routes} = require('./routes/index')
+const {routes} = require('./routes/index');
 
 server.use(morgan('dev'));
 server.use((req, res, next) => {
@@ -18,8 +18,8 @@ server.use((req, res, next) => {
     next();
  });
  
-
-server.use("/videogames", routes)
 server.use(express.json());
+server.use("/videogames", routes);
+
 
 module.exports = { server }

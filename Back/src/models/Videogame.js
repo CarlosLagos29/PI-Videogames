@@ -2,11 +2,11 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) =>{
     sequelize.define('Videogames',{
-        // id: {
-        //     type: DataTypes.UUID,
-        //     allowNull: false,
-        //     primaryKey: true, 
-        // },
+        id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            primaryKey: true, 
+        },
         name:{
             type:DataTypes.STRING,
             allowNull:false
@@ -21,9 +21,9 @@ module.exports = (sequelize) =>{
         },
         image:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:true
         },
-        release:{
+        released:{
             type:DataTypes.DATE,
             allowNull:true
         },

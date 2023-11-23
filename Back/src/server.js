@@ -5,5 +5,5 @@ server.listen(3001, console.log(`Server raised in port: 3001 `))
 
 conn.sync({ force: true })
 .then(async () => {
-    console.log('Success with syncing tables!')})
+    console.log('Syncing tables succes!')})
 .catch(error => console.log(error.message))
