@@ -7,6 +7,7 @@ import Landing from './Components/Landing';
 import HomePage from './Components/HomePage';
 import Detail from './Components/Detail';
 import NewGame from './Components/NewGame';
+import Error from './Components/Error';
 
 const App = () => {
 
@@ -19,8 +20,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<HomePage/>}/>
-        <Route path='/detail' element={<Detail/>}/>
+        <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/create' element={<NewGame/>} />
+        <Route path='*' element ={<Error/>}/>
       </Routes>
     </div>
   )

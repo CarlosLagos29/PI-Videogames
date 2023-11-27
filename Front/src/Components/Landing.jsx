@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
-
 const Landing = () => {
     return (
         <div>
-            <h1>Landing page</h1>
+            <img src="..\Utils\cc53145fafdc360dd9a7ad9fecc852ff.gif" alt="" />
+            <br />
             <Link to="/home">
-                <button>ingresar</button>
+                <a>
+                    <img src="..\Utils\images (1).png" alt="" />
+                </a>
             </Link>
         </div>
     )

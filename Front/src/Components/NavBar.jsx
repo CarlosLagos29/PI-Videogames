@@ -11,6 +11,9 @@ const NavBar = ()=>{
             <Link to="/create">
                 <button>New game</button>
             </Link>
+            <Link to= "/">
+                <button>Quit</button>
+            </Link>
         </nav>
     )
 }

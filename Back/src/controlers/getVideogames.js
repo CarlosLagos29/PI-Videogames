@@ -1,11 +1,13 @@
 require('dotenv').config();
 const { API_KEY } = process.env;
 const axios = require("axios");
+const { Videogames } = require("../DB_conect");
+
 
 
 const getVideogames = async (req, res) => {
   try {
-    const games = [];
+    let games = [];
     let page = 1;
 
     while (games.length < 100) {
@@ -26,6 +28,8 @@ const getVideogames = async (req, res) => {
       games.push(...nombresDeJuegos);
       page += 1;
     }
+    const gamesBD = await Videogames.findAll();
+    games = [...gamesBD,...games];
 
     return res.status(200).json(games);
   } catch (error) {

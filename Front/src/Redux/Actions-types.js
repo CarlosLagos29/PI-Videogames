@@ -1,0 +1,9 @@
+export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
+export const GET_GAMES_BYID = "GET_GAMES_BYID";
+export const GET_GAMES_BY_NAME = "GET_GAMES_BY_NAME";
+export const POST_VIDEOGAME = "POST_VIDEOGAME";
+export const OREDER_ALPH = "OREDER_ALPH";
+export const ORDER_RATING = "ORDER_RATING";
+export const FILTER_GENRES = "FILTER_GENRES";
+export const FILTER_ORGIN = "FILTER_ORGIN";
+export const PAGES = "PAGES";
