@@ -13,8 +13,12 @@ const getGenders = async (req, res) => {
                 name
             }
         })
-        await Genres.bulkCreate(gens)
-        return res.status(200).json(gens);
+        const genresDB = await Genres.findAll()
+        if (!genresDB.length) {
+            await Genres.bulkCreate(gens)
+            return res.status(200).json(gens);
+        }
+        else { res.status(200).json(genresDB) }
     } catch (error) {
         return res.status(500).json(error.message);
     }

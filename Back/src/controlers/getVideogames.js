@@ -17,7 +17,6 @@ const getVideogames = async (req, res) => {
         return {
           id : game.id,
           name: game.name,
-          description: game.description_raw,
           plataforms: game.platforms.map((plataforma) => plataforma.platform.name),
           image: game.background_image,
           release: game.released,

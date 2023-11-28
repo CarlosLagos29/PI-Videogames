@@ -17,8 +17,6 @@ const Pages = ({allVideogames})=>{
     const pagesHandler = (event) => {
         dispatch(page(event.target.value))
     }
-
-    console.log(currentPage);
  return(
     <nav>
             <button value="Previus" onClick={pagesHandler} disabled={currentPage == 1? true: false}>{"<"}</button>
