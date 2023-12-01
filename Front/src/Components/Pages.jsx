@@ -18,7 +18,7 @@ const Pages = ({allVideogames})=>{
         dispatch(page(event.target.value))
     }
  return(
-    <nav>
+    <nav className={style.pages}>
             <button value="Previus" onClick={pagesHandler} disabled={currentPage == 1? true: false}>{"<"}</button>
             {pag.map((nPage)=>(
                 <button value={nPage} onClick={pagesHandler} className={nPage == currentPage? style.current : ""} key={nPage}>{nPage}</button>

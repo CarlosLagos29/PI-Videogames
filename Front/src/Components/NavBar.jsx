@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import style from "../Estilos/NavBar.module.css"
 
 const NavBar = ()=>{
     return (
-        <nav>
+        <nav className={style.Alineado}>
             <SearchBar/>
             <Link to="/home">
                 <button>Home</button>

@@ -1,12 +1,13 @@
 require('dotenv').config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const { Videogames } = require("../DB_conect");
+const { Videogames, Genres } = require("../DB_conect");
 
 
-
-const getVideogames = async (req, res) => {
+const getVideogames = async (req,res) => {
   try {
+    
+
     let games = [];
     let page = 1;
 
@@ -27,12 +28,25 @@ const getVideogames = async (req, res) => {
       games.push(...nombresDeJuegos);
       page += 1;
     }
-    const gamesBD = await Videogames.findAll();
-    games = [...gamesBD,...games];
-
-    return res.status(200).json(games);
+    const gamesBD = await Videogames.findAll({
+      include: [
+        {
+          model: Genres,
+        },
+      ],
+    });
+    
+    const parcedGamesDB = gamesBD.map((game) => {
+      let g = game.Genres.map((genre) => genre.name);
+      return {
+        ...game.toJSON(),
+        Genres: g,
+      };
+    });
+    games = [...parcedGamesDB, ...games]
+    return  res.status(200).json(games)
   } catch (error) {
-    return res.status(500).json(error.message);
+    return res.status(500).json(error.message)
   }
 };
 

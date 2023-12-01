@@ -3,8 +3,7 @@ const { API_KEY } = process.env;
 const axios = require("axios");
 const { Genres } = require("../DB_conect");
 
-const getGenders = async (req, res) => {
-    try {
+const getGenders = async (req,res) => {
         const { data } = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
 
         const gens = data.results.map(({ id, name }) => {
@@ -18,10 +17,7 @@ const getGenders = async (req, res) => {
             await Genres.bulkCreate(gens)
             return res.status(200).json(gens);
         }
-        else { res.status(200).json(genresDB) }
-    } catch (error) {
-        return res.status(500).json(error.message);
-    }
+        else { return res.status(200).json(genresDB) }
 }
 
 module.exports = { getGenders }

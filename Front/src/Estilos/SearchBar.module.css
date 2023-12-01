@@ -1,0 +1,15 @@
+.agregar{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(184,184,249,0.6867121848739496) 0%, rgba(0,212,255,1) 100%);
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.barra{
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px 20px;
+}

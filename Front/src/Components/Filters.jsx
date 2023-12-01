@@ -1,9 +1,11 @@
 import { filterGender, filterOrigin, orderAlph, orderRating, page } from "../Redux/Actions";
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
+import styles from "../Estilos/Filters.module.css"
 
 const Filters = ()=>{
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const allgenres = useSelector((state)=> state.allgenres)
 
     const handlerAlph = (event) => {
         dispatch(page(1))
@@ -22,7 +24,7 @@ const Filters = ()=>{
         dispatch(filterGender(event.target.value))
     }
     return (
-        <div>
+        <div className={styles.allFilters}>
             <select onChange={handlerAlph}>
                 <option value="Default">Name Order</option>
                 <option value="A">A-z</option>
@@ -40,25 +42,11 @@ const Filters = ()=>{
             </select>
             <select onChange={handlerGenres}>
                 <option value="All genres">All Genres</option>
-                <option value="Action">Action</option>
-                <option value="Indie">Indie</option>
-                <option value="Adventure">Adventure</option>
-                <option value="RPG">RPG</option>
-                <option value="Strategy">Strategy</option>
-                <option value="Shooter">Shooter</option>
-                <option value="Casual">Casual</option>
-                <option value="Simulation">Simulation</option>
-                <option value="Puzzle">Puzzle</option>
-                <option value="Arcade">Arcade</option>
-                <option value="Platformer">Platformer</option>
-                <option value="Massively Multiplayer">Massively Multiplayer</option>
-                <option value="Racing">Racing</option>
-                <option value="Sports">Sports</option>
-                <option value="Fighting">Fighting</option>
-                <option value="Family">Family</option>
-                <option value="Board Games">Board Games</option>
-                <option value="Educational">Educational</option>
-                <option value="Card">Card</option>
+                {allgenres.length && allgenres.map(({id,name})=> {
+                    return(
+                        <option key={id} value={name}>{name}</option>
+                    )
+                })}
             </select>
             </div>
     )

@@ -1,27 +1,34 @@
 require('dotenv').config();
 const { Videogames, Genres } = require("../DB_conect");
-const generarUUID = require("../FnAuxiliares/GenerarUUID")
 
 const postVideogame = async (req, res) => {
   try {
-    const { name, description, plataforms, image, released, rating } = req.body;
-
-    const id = generarUUID();
+    const { name, description, plataforms, image, released, rating, genres } = req.body;
 
     const [game, created] = await Videogames.findOrCreate({
       where: { name: name },
       defaults: {
-        id: id,
         description: description,
         plataforms: plataforms,
         image: image,
         released: released,
         rating: rating
       },
-      include: Genres
     });
+    
+    const generDB = await Genres.findAll({ where: { name: genres } });
+    
+    if (generDB.length > 0) {
 
-    return res.status(200).json({ created, game });
+      await game.addGenres(generDB);
+    
+    } else {
+      return res.status(404).json({ message: `Genres: ${genres.join(", ")}  not found` });
+    }
+    
+    
+    return res.status(200).json(game);
+    
   } catch (error) {
     return res.status(500).json(error.message);
   }

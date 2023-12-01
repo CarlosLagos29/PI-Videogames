@@ -3,32 +3,36 @@ require("dotenv").config
 const { API_KEY } = process.env;
 
 const getGameByGenres = async (req, res) => {
-  const { genres } = req.params;
+  const { gen } = req.params;
 
   try {
-      let games = [];
-      let page = 1;
+    let games = [];
+    let page = 1;
+    
+    while (games.length < 10) {
+       
+        const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`);
 
-      while (games.length < 10) {
-          const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`);
-          
-          const gamePerGender = data.results.filter((game) => {
-              return game.genres?.includes(genres);
-          });
-
-          const apiGames = gamePerGender.map((game) => ({
-              id: game.id,
+        const nombresDeJuegos = data.results.map((game) => {
+            return {
+              id : game.id,
               name: game.name,
-              platforms: game.platforms.map((platform) => platform.platform.name),
+              plataforms: game.platforms.map((plataforma) => plataforma.platform.name),
               image: game.background_image,
               release: game.released,
               rating: game.rating,
-              genres: game.genres.map((g) => g.name),
-          }));
+              Genres: game.genres.map((g) => g.name)
+            };
+          });
 
-          games.push(...apiGames);
-          page += 1;
-      } 
+        const filtered = nombresDeJuegos.filter((game)=> game.Genres === gen);
+
+        games.push(...filtered)
+        
+        page += 1;
+    }
+    
+   return res.status(200).json(games)
     } catch (error) {
         return res.status(500).json(error.message);
     }

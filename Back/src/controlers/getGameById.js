@@ -1,16 +1,31 @@
 const axios = require("axios");
 require("dotenv").config
 const { API_KEY } = process.env;
-const { Videogames, Genres } = require("../DB_conect")
+const { Videogames, Genres } = require("../DB_conect");
+
 
 const getGameById = async (req, res) => {
     const { id } = req.params
     try {
         if (isNaN(id)) {
-            const gameDb = await Videogames.findOne({ where: { id }, include: Genres });
-            if (gameDb) {
-                return res.status(200).json(gameDb)
-            }
+            const gameDb = await Videogames.findAll({
+                where: { id },
+                include: [
+                    {
+                        model: Genres,
+                    },
+                ],
+            });
+            
+            const parcedGamesDB = gameDb.map((game) => {
+                let g = game.Genres.map((genre) => genre.name);
+                return {
+                  ...game.toJSON(),
+                  Genres: g,
+                };
+              });
+            
+            return res.status(200).json(parcedGamesDB[0]);
         }
         else {
             const { data } = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);

@@ -1,0 +1,12 @@
+.detalle {
+    background: rgb(178, 36, 254);
+    background: linear-gradient(90deg, rgba(178, 36, 254, 1) 0%, rgba(58, 231, 75, 1) 52%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1000px;
+}
+.datos{
+    margin: 30px;
+}

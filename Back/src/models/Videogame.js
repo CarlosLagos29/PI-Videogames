@@ -4,8 +4,8 @@ module.exports = (sequelize) =>{
     sequelize.define('Videogames',{
         id: {
             type: DataTypes.UUID,
-            allowNull: false,
-            primaryKey: true, 
+            primaryKey: true,
+            defaultValue : DataTypes.UUIDV4
         },
         name:{
             type:DataTypes.STRING,
@@ -35,5 +35,5 @@ module.exports = (sequelize) =>{
                 max: 5
             }
         }
-    })
+    },{timestamps: false})
 }

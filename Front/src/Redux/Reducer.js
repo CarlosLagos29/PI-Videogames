@@ -2,6 +2,7 @@ import {
     GET_ALL_VIDEOGAMES,
     GET_GAMES_BY_ID,
     GET_GAMES_BY_NAME,
+    GET_GENRES,
     POST_VIDEOGAME,
     ORDER_ALPH, ORDER_RATING,
     FILTER_GENRES, FILTER_ORIGIN,
@@ -11,6 +12,9 @@ import {
 const initialState = {
     allVideogames: [],
     copyOfAllvideogames: [],
+    allgenres: [],
+    copyOfGenres: [],
+    myGame:{},
     gamesPerPage: 5,
     currentPage: 1,
 }
@@ -22,6 +26,12 @@ const Reducer = (state = initialState, action) => {
                 ...state,
                 allVideogames: action.payload,
                 copyOfAllvideogames: action.payload
+            }
+        case GET_GENRES:
+            return {
+                ...state,
+                allgenres: action.payload,
+                copyOfGenres: action.payload
             }
         case PAGES:
             if (!isNaN(action.payload)) {
@@ -73,7 +83,7 @@ const Reducer = (state = initialState, action) => {
                         allVideogames: state.copyOfAllvideogames
                     };
                 }
-            
+                state.allVideogames = state.copyOfAllvideogames;
                 const filteredOrigin = state.allVideogames.filter((game) => {
                     return action.payload === "API" ? !isNaN(game.id) : isNaN(game.id);
                 });
@@ -87,7 +97,7 @@ const Reducer = (state = initialState, action) => {
                     allVideogames: filteredOrigin
                 }}
             }            
-        case FILTER_GENRES:{
+        case FILTER_GENRES:{            
             if (action.payload === "All genres") {
                 return {
                     ...state,
@@ -95,11 +105,34 @@ const Reducer = (state = initialState, action) => {
                 };
             }
             const filteredGenres = state.allVideogames.filter((games) => games.Genres.includes(action.payload))
+            if(filteredGenres.length){
+                return{
+                    ...state,
+                    allVideogames: filteredGenres
+                }
+            }
             return{
                 ...state,
-                allVideogames: filteredGenres
+                allVideogames: "There are currently no games with that genre"
             }
         }
+        case GET_GAMES_BY_NAME:
+            if (action.payload !== ""){
+            return{
+                ...state,
+                allVideogames: action.payload
+            }}
+            else{
+                return {
+                    ...state,
+                    allVideogames: state.copyOfAllvideogames
+                };
+            }
+        case POST_VIDEOGAME:
+            return{
+                ...state,
+                myGame: action.payload
+            }
         default: return { ...state }
     }
 }

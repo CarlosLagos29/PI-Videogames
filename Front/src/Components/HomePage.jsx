@@ -3,12 +3,14 @@ import Pages from "./Pages";
 import Filters from "./Filters";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllVideogames} from "../Redux/Actions";
+import { getAllVideogames ,getGenres } from "../Redux/Actions";
+import Styles from "../Estilos/HomePage.module.css"
 
 
 const HomePage = () => {
 
-    const allVideogames = useSelector((state) => state.allVideogames)
+    const allVideogames = useSelector((state) => state.allVideogames);
+    const allgenres = useSelector((state)=> state.allgenres)
     const gamesPerPage = useSelector((state) => state.gamesPerPage);
     const currentPage = useSelector((state) => state.currentPage);
 
@@ -18,13 +20,16 @@ const HomePage = () => {
     const firstIndex = lastIndex - gamesPerPage;
 
     useEffect(() => {
+        if(Array.isArray(allVideogames) && !allVideogames.length)
         dispatch(getAllVideogames())
+        if(!allgenres.length)
+        dispatch(getGenres())
     }, [])
 
     return (
         <div>
             <Filters/>
-            <br />
+            <div className={Styles.allCards}>
             {
                 !allVideogames.length ? <img src="..\Utils\loading-2.gif" alt="" /> :
                 Array.isArray(allVideogames)?
@@ -43,7 +48,8 @@ const HomePage = () => {
                     .slice(firstIndex, lastIndex)
                     : <h1>{allVideogames}</h1>
             }
-            <Pages allVideogames={allVideogames} />
+            </div>
+            { allVideogames.length && <Pages allVideogames={allVideogames} />}
         </div>
     )
 }
