@@ -13,7 +13,6 @@ const getVideogames = async (req,res) => {
 
     while (games.length < 100) {
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`);
-
       const nombresDeJuegos = data.results.map((game) => {
         return {
           id : game.id,

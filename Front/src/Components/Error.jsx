@@ -1,8 +1,10 @@
+import styles from "../Estilos/Error.module.css"
+
 const Error =()=>{
 
     return(
-        <div>
-            <img src="..\Utils\7-Flickering-404-Error-Page-by-Spiderone.jpg" alt="Error404" />
+        <div className={styles.error}>
+            <img src="..\Utils\4418ae4da29e92547603c7d8be4c4ee4.png" alt="Error404" />
         </div>
     )
 }

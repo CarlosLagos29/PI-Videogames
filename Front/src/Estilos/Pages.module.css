@@ -1,5 +1,6 @@
 .current{
-    background-color: aqua;
+    background-color: blue;
+    color: white;
 }
 .pages{
     display: flex;

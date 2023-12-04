@@ -7,11 +7,11 @@ const Card = ({id, name, image, genres,rating }) => {
     return (
         <div className={style.carta}>
             <Link to={`/detail/${id}`}>
-                <h2>Name: {name}</h2>
+                <h3 className= {style.nameContainer} >Name: {name}</h3>
             </Link>
-            <h3>Genres: {genres.length? genres.join(", "): "unknown"} </h3>
-            <h3>Rating: ⭐{rating}</h3>
-            <img src={image} alt={name} width= "500px" height="450px" />
+            <h4 className= {style.nameContainer}>Genres: {genres.length? genres.join(", "): "unknown"} </h4>
+            <h4>Rating: {rating}</h4>
+            <img src={image} alt={name} width= "450px" height="400px" />
         </div>
     )
 }

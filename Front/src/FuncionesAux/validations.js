@@ -6,7 +6,7 @@ const validate = (gameData) => {
     if (!/^https:\/\//i.test(gameData.image)) {
         errors.image = "This field must be completed with a url"
     }
-    if (gameData.image === "https://ih1.redbubble.net/image.810044743.8981/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg" ){
+    if (gameData.image === "../Utils/Sin título-2.png" ){
         errors.image = "Please post an image of your game"
     }
     if (gameData.rating < 0) {
@@ -39,8 +39,6 @@ const validate = (gameData) => {
     if(gameData.released === ""){
         errors.released = "Please select a date"
     }
-
-
     return errors
 }
 

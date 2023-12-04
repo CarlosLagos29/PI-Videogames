@@ -31,7 +31,7 @@ const HomePage = () => {
             <Filters/>
             <div className={Styles.allCards}>
             {
-                !allVideogames.length ? <img src="..\Utils\loading-2.gif" alt="" /> :
+                !allVideogames.length ? <img src="..\Utils\gifpacman.gif" alt="" /> :
                 Array.isArray(allVideogames)?
                     allVideogames.map(({ id, name, image, Genres , rating }) => {
                         return (
