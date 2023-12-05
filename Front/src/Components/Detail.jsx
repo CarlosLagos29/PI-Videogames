@@ -24,16 +24,22 @@ const Detail = () => {
 
    return (
       <div className={style.detalle}>
-         <img src={actualGame.image ? actualGame.image : "NotFound"} alt={actualGame.name} width="500px" height="450px" />
-         <h2>ID || {id ? id : "NotFound"}</h2>
-         <h2>Name || {actualGame.name ? actualGame.name : "NotFound"}</h2>
-         <h2>Plataforms || 🎮{actualGame.plataforms ? actualGame.plataforms?.join(", ") : "NotFound"}</h2>
-         <h2>Relased Date || {actualGame.released ? actualGame.released : "NotFound"}</h2>
-         <h2>Rating || ⭐{actualGame.rating ? actualGame.rating : "NotFound"}</h2>
-         <h2>Generos || {actualGame.Genres ? actualGame.Genres?.join(", ") : "NotFound"}</h2>
-         <div className={style.datos}>
-            <h2>Description ||</h2>
-            <p>{actualGame.description ? actualGame.description : "NotFound"}</p>
+         <div className={style.nonDescription}>
+         <div className={style.imgID}>
+         <img className={style.image} src={actualGame.image ? actualGame.image : "NotFound"} alt={actualGame.name}/>
+         <h3>ID: {id ? id : "NotFound"}</h3>
+         </div>
+         <div className={style.nprrg}>
+         <h3>Name: {actualGame.name ? actualGame.name : "NotFound"}</h3>
+         <h3>🎮Plataforms: {actualGame.plataforms ? actualGame.plataforms?.join(", ") : "NotFound"}</h3>
+         <h3>Relased Date: {actualGame.released ? actualGame.released : "NotFound"}</h3>
+         <h3>⭐Rating: {actualGame.rating ? actualGame.rating : "NotFound"}</h3>
+         <h3>Generos: {actualGame.Genres ? actualGame.Genres?.join(", ") : "NotFound"}</h3>
+         </div>
+         </div>
+         <div className={style.description}>
+         <h3>Description:</h3>
+         <p >{actualGame.description ? actualGame.description : "NotFound"}</p>
          </div>
       </div>
    )

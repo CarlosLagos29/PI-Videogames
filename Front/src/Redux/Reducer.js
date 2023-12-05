@@ -14,7 +14,6 @@ const initialState = {
     copyOfAllvideogames: [],
     allgenres: [],
     copyOfGenres: [],
-    myGame:{},
     gamesPerPage: 5,
     currentPage: 1,
 }
@@ -131,7 +130,7 @@ const Reducer = (state = initialState, action) => {
         case POST_VIDEOGAME:
             return{
                 ...state,
-                myGame: action.payload
+                allVideogames: [...action.payload, ...state.allVideogames]
             }
         default: return { ...state }
     }

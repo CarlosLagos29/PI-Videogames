@@ -1,12 +1,50 @@
 .detalle {
-    background: rgb(178, 36, 254);
-    background: linear-gradient(90deg, rgba(178, 36, 254, 1) 0%, rgba(58, 231, 75, 1) 52%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 1000px;
+    width: auto;
+    color: white;
+    margin: 20px;
+    border: 10px double blue;
+    border-radius: 20px;
 }
-.datos{
+
+.imgID {
+    display: inline;
+    border: 10px double blue;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.nprrg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 30px;
+    border: 10px double blue;
+    border-radius: 20px;
+    padding: 40px;
+    height: 350px;
+    margin-top: 100px;
+}
+
+.nonDescription {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+
+}
+
+.image {
+    border-radius: 20px;
+    width: 600px;
+    height: 550px;
+}
+
+.description {
+    margin: 30px;
+    border: 10px double blue;
+    border-radius: 20px;
+    padding: 20px;
 }

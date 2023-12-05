@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
+
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
@@ -10,7 +10,6 @@ import Error from './Components/Error';
 
 const App = () => {
 
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   return (

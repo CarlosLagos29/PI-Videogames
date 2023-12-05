@@ -8,11 +8,9 @@ const Filters = ()=>{
     const allgenres = useSelector((state)=> state.allgenres)
 
     const handlerAlph = (event) => {
-        dispatch(page(1))
         dispatch(orderAlph(event.target.value));
     }
     const handlerRating = (event)=>{
-        dispatch(page(1))
         dispatch(orderRating(event.target.value))
     }
     const handlerOrigin = (event) =>{

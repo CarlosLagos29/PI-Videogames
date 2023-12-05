@@ -2,13 +2,34 @@
     display: grid;
     text-align: center;
     width: 550px;
-    background-color: #fdff00;
+    color: white;
     justify-items: center;
     margin: 20px;
     line-height: 1px;
-    height: 600px;
+    height: 575px;
+    border: 10px double blue;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    & img {
+        border-radius: 20px;
+        width:450px;
+        height:400px;
+        padding: 1px;
+        border: 10px double blue;
+        border-radius: 20px; 
+        transition: 0.5s ease;
+    }
+}
 
- 
+.carta:hover{
+    background-color: blue;
+    border: 10px double white;
+    border-radius: 20px;
+    & img{
+        border: 10px double white;
+        border-radius: 20px;
+
+    }
 }
 
 .nameContainer {
@@ -17,6 +38,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 1px;
-    /* padding: 0; */
     line-height: 1.2;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
 }

@@ -13,7 +13,7 @@ const NewGame = () => {
         name: "",
         description: "",
         plataforms: [],
-        image: "../Utils/Sin título-2.png", //si la cambias acordate de cambiarla en el validate 
+        image: "../Utils/Sin título-2.png",
         released: "",
         rating: 0,
         genres: []
@@ -50,6 +50,7 @@ const NewGame = () => {
                 plataforms: [...gameData.plataforms, currentPlataform]
             })
         }
+        setPlataforms("")
     };
     const handlerDeletePlataform = (event) => {
         event.preventDefault();
@@ -147,7 +148,7 @@ const NewGame = () => {
                 <ul className={style.checkboxContainer}>
                     {gameData.plataforms.map((platform, index) => (
                         <li key={index}>
-                            <button onClick={handlerDeletePlataform} value={platform}>{platform}</button>
+                            <button className={style.buttonForm} onClick={handlerDeletePlataform} value={platform}>{platform}</button>
                         </li>
                     ))}
                 </ul>
@@ -167,7 +168,7 @@ const NewGame = () => {
 
 
                 <button type="submit" disabled={Object.keys(errors).length === 0 ? false : true}>Create Game</button>
-                <p style={{color: "green"}}>{createdGame === true? "Game Created successfully!": "" }</p>
+                <p style={{color: "greenyellow"}}>{createdGame === true? "Game Created successfully!": "" }</p>
             </form>
         </div>
     )

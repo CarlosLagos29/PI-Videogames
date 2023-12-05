@@ -20,11 +20,9 @@ const HomePage = () => {
     const firstIndex = lastIndex - gamesPerPage;
 
     useEffect(() => {
-        if(Array.isArray(allVideogames) && !allVideogames.length)
         dispatch(getAllVideogames())
-        if(!allgenres.length)
         dispatch(getGenres())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
-    height: 25px;
+    height: 35px;
     border-radius: 20px;
     & select {
         font-family: 'PressStart2P-Regular', sans-serif;
