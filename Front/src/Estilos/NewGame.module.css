@@ -1,18 +1,21 @@
-.divForm{
+.divForm {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+    border: 10px double blue;
+    border-radius: 20px;
+    margin: 10px;
 }
 
-.form{
+.form {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     margin-top: 15px;
 }
 
-.genres{
+.genres {
     margin-top: 10px;
     font-family: 'PressStart2P-Regular', sans-serif;
     margin: 5px;
@@ -21,12 +24,13 @@
     text-align: center;
     padding: 5px 15px;
 }
-.genres:hover{
+
+.genres:hover {
     color: white;
     background-color: blue;
 }
 
-.inputImage{
+.inputImage {
     margin-top: 10px;
     font-family: 'PressStart2P-Regular', sans-serif;
     width: 600px;
@@ -36,7 +40,7 @@
 
 }
 
-.inputName{
+.inputName {
     margin-top: 10px;
     font-family: 'PressStart2P-Regular', sans-serif;
     width: 300px;
@@ -45,11 +49,11 @@
     padding: 5px 15px;
 }
 
-label{
+label {
     color: white;
 }
 
-.input{
+.input {
     border-radius: 20px;
 }
 
@@ -57,14 +61,15 @@ label{
 .checkboxContainer {
     list-style-type: none;
     padding: 0;
-  }
-  
+}
+
 .checkboxContainer li::before {
-    content: "X"; 
+    content: "X";
     color: red;
     margin-right: 5px;
 }
-.description{
+
+.description {
     margin-top: 10px;
     font-family: 'PressStart2P-Regular', sans-serif;
     border-radius: 20px;
@@ -73,7 +78,7 @@ label{
 }
 
 
-.buttonForm{
+.buttonForm {
     font-family: 'PressStart2P-Regular', sans-serif;
     background: white;
     margin: 5px;
@@ -83,14 +88,17 @@ label{
     padding: 10px 20px;
     transition: 0.3s;
 }
-.buttonForm:hover{
-        background-color: blue;
-        color: white;
+
+.buttonForm:hover {
+    background-color: blue;
+    color: white;
 }
 
-.imagForm{
+.imagForm {
     border-radius: 20px;
     width: 500px;
     height: 450px;
     margin-top: 15px;
+    border: 10px double blue;
+    border-radius: 20px;
 }

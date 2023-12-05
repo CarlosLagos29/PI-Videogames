@@ -9,7 +9,7 @@ const Landing = () => {
             <br />
             <Link to="/home">
                 <a>
-                    <img src="..\Utils\images (1).png" alt="" className= {style.pressStart} />
+                    <img src="..\Utils\images (1).png" alt="" className={style.pressStart} />
                 </a>
             </Link>
         </div>

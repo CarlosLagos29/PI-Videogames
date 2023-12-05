@@ -1,8 +1,9 @@
-.current{
+.current {
     background-color: blue;
     color: white;
 }
-.pages{
+
+.pages {
     display: flex;
     justify-content: center
 }

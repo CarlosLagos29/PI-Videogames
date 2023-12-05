@@ -1,4 +1,4 @@
-.allFilters{
+.allFilters {
     display: flex;
     justify-content: center;
     display: flex;
@@ -6,6 +6,7 @@
     margin: 10px;
     height: 35px;
     border-radius: 20px;
+
     & select {
         font-family: 'PressStart2P-Regular', sans-serif;
         border-radius: 20px;
@@ -13,41 +14,45 @@
     }
 }
 
-.filtro1{
-    background-color: red ;
+.filtro1 {
+    background-color: red;
     transition: 0.3s ease;
 }
-.filtro1:hover{
+
+.filtro1:hover {
     background-color: blue;
     color: white;
 }
 
 
-.filtro2{
+.filtro2 {
     background-color: #ea82e5;
     transition: 0.3s ease;
 }
-.filtro2:hover{
+
+.filtro2:hover {
     background-color: blue;
     color: white;
 }
 
 
-.filtro3{
+.filtro3 {
     background-color: orange;
     transition: 0.3s ease;
 }
-.filtro3:hover{
+
+.filtro3:hover {
     background-color: blue;
     color: white;
 }
 
 
-.filtro4{
+.filtro4 {
     background-color: aqua;
     transition: 0.3s ease;
 }
-.filtro4:hover{
+
+.filtro4:hover {
     background-color: blue;
     color: white;
 }

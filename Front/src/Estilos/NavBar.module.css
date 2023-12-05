@@ -2,11 +2,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #fdff00;
+    background-color: #ffff00;
     padding: 5px;
     height: 70px;
 }
-button{
+
+button {
     font-family: 'PressStart2P-Regular', sans-serif;
     background: white;
     margin: 5px;
@@ -16,7 +17,8 @@ button{
     padding: 10px 20px;
     transition: 0.3s;
 }
-button:hover{
-        background-color: blue;
-        color: white;
+
+button:hover {
+    background-color: blue;
+    color: white;
 }

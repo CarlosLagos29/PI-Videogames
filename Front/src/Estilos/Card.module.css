@@ -10,22 +10,24 @@
     border: 10px double blue;
     border-radius: 20px;
     transition: 0.5s ease;
+
     & img {
         border-radius: 20px;
-        width:450px;
-        height:400px;
+        width: 450px;
+        height: 400px;
         padding: 1px;
         border: 10px double blue;
-        border-radius: 20px; 
+        border-radius: 20px;
         transition: 0.5s ease;
     }
 }
 
-.carta:hover{
+.carta:hover {
     background-color: blue;
     border: 10px double white;
     border-radius: 20px;
-    & img{
+
+    & img {
         border: 10px double white;
         border-radius: 20px;
 
@@ -41,7 +43,7 @@
     line-height: 1.2;
 }
 
-.link{
+.link {
     text-decoration: none;
     color: inherit;
 }

@@ -88,7 +88,15 @@ const NewGame = () => {
         event.preventDefault();
         dispatch(postVideogame(gameData))
         setCreatedGame(true)
-
+        setGameData({
+            name: "",
+            description: "",
+            plataforms: [],
+            image: "../Utils/Sin título-2.png",
+            released: "",
+            rating: 0,
+            genres: []
+        })
     }
 
     useEffect(() => {

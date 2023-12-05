@@ -6,7 +6,7 @@ const validate = (gameData) => {
     if (!/^https:\/\//i.test(gameData.image)) {
         errors.image = "This field must be completed with a url"
     }
-    if (gameData.image === "../Utils/Sin título-2.png" ){
+    if (gameData.image === "../Utils/Sin título-2.png") {
         errors.image = "Please post an image of your game"
     }
     if (gameData.rating < 0) {
@@ -21,22 +21,22 @@ const validate = (gameData) => {
     if (gameData.name?.length < 4) {
         errors.name = "The name must be at least 4 characters"
     }
-    if (gameData.name?.length > 20){
-        errors.name ="The name cannot exceed 20 characters"
+    if (gameData.name?.length > 20) {
+        errors.name = "The name cannot exceed 20 characters"
     }
     if (gameData.name.trim() === "") {
         errors.name = "Enter the name of your video game"
     }
-    if (!gameData.genres?.length){
+    if (!gameData.genres?.length) {
         errors.genres = "Select at least one genre"
     }
-    if (gameData.genres?.length > 3){
-        errors.genres = "You can only select a maximum of 3 genres"        
+    if (gameData.genres?.length > 3) {
+        errors.genres = "You can only select a maximum of 3 genres"
     }
-    if (!gameData.plataforms?.length){
+    if (!gameData.plataforms?.length) {
         errors.plataforms = "Enter some platform"
     }
-    if(gameData.released === ""){
+    if (gameData.released === "") {
         errors.released = "Please select a date"
     }
     return errors

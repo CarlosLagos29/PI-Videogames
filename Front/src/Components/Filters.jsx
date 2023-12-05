@@ -1,19 +1,21 @@
 import { filterGender, filterOrigin, orderAlph, orderRating, page } from "../Redux/Actions";
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from "../Estilos/Filters.module.css"
 
-const Filters = ()=>{
+const Filters = () => {
 
     const dispatch = useDispatch();
-    const allgenres = useSelector((state)=> state.allgenres)
+    const allgenres = useSelector((state) => state.allgenres)
 
     const handlerAlph = (event) => {
+        dispatch(page(1))
         dispatch(orderAlph(event.target.value));
     }
-    const handlerRating = (event)=>{
+    const handlerRating = (event) => {
+        dispatch(page(1))
         dispatch(orderRating(event.target.value))
     }
-    const handlerOrigin = (event) =>{
+    const handlerOrigin = (event) => {
         dispatch(page(1))
         dispatch(filterOrigin(event.target.value))
     }
@@ -40,13 +42,13 @@ const Filters = ()=>{
             </select>
             <select className={styles.filtro4} onChange={handlerGenres}>
                 <option value="All genres">All Genres</option>
-                {allgenres.length && allgenres.map(({id,name})=> {
-                    return(
+                {allgenres.length && allgenres.map(({ id, name }) => {
+                    return (
                         <option key={id} value={name}>{name}</option>
                     )
                 })}
             </select>
-            </div>
+        </div>
     )
 }
 

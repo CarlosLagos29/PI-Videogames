@@ -44,7 +44,7 @@ const HomePage = () => {
                         )
                     })
                     .slice(firstIndex, lastIndex)
-                    : <h1>{allVideogames}</h1>
+                    : <h1 style={{color: "white"}}>{allVideogames}</h1>
             }
             </div>
             { allVideogames.length && <Pages allVideogames={allVideogames} />}
