@@ -5,6 +5,10 @@ const postVideogame = async (req, res) => {
   try {
     const { name, description, plataforms, image, released, rating, genres } = req.body;
 
+    if (!name || !description || !plataforms || !image || !released || !rating || !genres) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
     const [game, created] = await Videogames.findOrCreate({
       where: { name: name },
       defaults: {

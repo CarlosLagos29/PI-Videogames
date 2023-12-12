@@ -6,7 +6,7 @@ import {
     POST_VIDEOGAME,
     ORDER_ALPH, ORDER_RATING,
     FILTER_GENRES, FILTER_ORIGIN,
-    PAGES
+    PAGES,
 } from "./Actions-types"
 import axios from "axios";
 
@@ -80,4 +80,3 @@ export const filterOrigin = (value) => {
 export const filterGender = (value) => {
     return { type: FILTER_GENRES, payload: value }
 }
-

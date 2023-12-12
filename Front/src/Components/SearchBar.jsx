@@ -21,6 +21,7 @@ const handlerClick = ()=>{
     }
     else{
     dispatch(getGamesByName(search))
+    setSearch("")
     }
 }    
 

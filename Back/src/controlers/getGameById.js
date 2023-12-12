@@ -6,6 +6,7 @@ const { Videogames, Genres } = require("../DB_conect");
 
 const getGameById = async (req, res) => {
     const { id } = req.params
+    
     try {
         if (isNaN(id)) {
             const gameDb = await Videogames.findAll({
@@ -24,7 +25,8 @@ const getGameById = async (req, res) => {
                   Genres: g,
                 };
               });
-            
+              
+            if(!Object.keys(parcedGamesDB).length){return res.status(404).json("Not found")}
             return res.status(200).json(parcedGamesDB[0]);
         }
         else {

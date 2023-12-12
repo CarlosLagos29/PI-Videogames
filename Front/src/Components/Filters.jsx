@@ -1,4 +1,4 @@
-import { filterGender, filterOrigin, orderAlph, orderRating, page } from "../Redux/Actions";
+import { filterGender, filterOrigin, orderAlph, orderRating} from "../Redux/Actions";
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "../Estilos/Filters.module.css"
 
@@ -23,22 +23,24 @@ const Filters = () => {
         dispatch(page(1))
         dispatch(filterGender(event.target.value))
     }
+
+
     return (
         <div className={styles.allFilters}>
-            <select className={styles.filtro1} onChange={handlerAlph}>
+            <select className={styles.filtro1} onChange={handlerOrigin}>
+                <option value="All">All Games</option>
+                <option value="API">Api Games</option>
+                <option value="DB">My Games</option>
+            </select>
+            <select className={styles.filtro2} onChange={handlerAlph}>
                 <option value="Default">Name Order</option>
                 <option value="A">A-z</option>
                 <option value="Z">Z-a</option>
             </select>
-            <select className={styles.filtro2} onChange={handlerRating}>
+            <select className={styles.filtro3} onChange={handlerRating}>
                 <option value="Unratig">Rating Order</option>
                 <option value="Highiest">Highiest</option>
                 <option value="Lowest">Lowest</option>
-            </select>
-            <select className={styles.filtro3} onChange={handlerOrigin}>
-                <option value="All">All Games</option>
-                <option value="API">Api Games</option>
-                <option value="DB">My Games</option>
             </select>
             <select className={styles.filtro4} onChange={handlerGenres}>
                 <option value="All genres">All Genres</option>

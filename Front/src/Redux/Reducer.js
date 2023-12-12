@@ -6,7 +6,7 @@ import {
     POST_VIDEOGAME,
     ORDER_ALPH, ORDER_RATING,
     FILTER_GENRES, FILTER_ORIGIN,
-    PAGES
+    PAGES,
 } from "./Actions-types"
 
 const initialState = {
@@ -82,8 +82,8 @@ const Reducer = (state = initialState, action) => {
                     allVideogames: state.copyOfAllvideogames
                 };
             }
-            state.allVideogames = state.copyOfAllvideogames;
-            const filteredOrigin = state.allVideogames.filter((game) => {
+
+            const filteredOrigin = [...state.copyOfAllvideogames].filter((game) => {
                 return action.payload === "API" ? !isNaN(game.id) : isNaN(game.id);
             });
             if (!filteredOrigin.length) return {

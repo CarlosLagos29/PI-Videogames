@@ -6,6 +6,7 @@ const { Op } = require('sequelize');
 
 const getGameByName = async (req, res) => {
     const { name } = req.query;
+    if(!name){return res.status(404).json("Insert a name")}
     try {
         const gamesDb = await Videogames.findAll({
             where: {
@@ -41,6 +42,7 @@ const getGameByName = async (req, res) => {
           }})
 
         const allGames = [...parcedGamesDB,...games];
+        if(!allGames.length){return res.status(404).json("This game not exist")}
         return res.status(200).json(allGames);
 
     } catch (error) {
