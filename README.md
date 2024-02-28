@@ -1,4 +1,4 @@
-# Full Stack Web Developer - Proyecto integrador Henry - Videogames	  
+# Proyecto integrador Henry - Videogames	  
 ### Experiencia académica. Henry Bootcamp
 
 Esta aplicación representó el punto culminante de mi experiencia en el bootcamp, ya que me permitió poner a prueba y aplicar de manera autónoma todos los conocimientos adquiridos durante el programa. Fue la primera aplicación que desarrollé de manera independiente, sirviendo como un hito significativo en mi trayectoria profesional.
